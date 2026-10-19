@@ -1,0 +1,13 @@
+# Desactivar la vista de lista de directorios
+Options -Indexes
+
+# Establecer archivo por defecto
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirigir el tráfico raíz de Apache directamente a la subcarpeta del proyecto
+    RewriteCond %{REQUEST_URI} !^/powerpink/powerpink/
+    RewriteRule ^(.*)$ /powerpink/powerpink/$1 [L]
+</IfModule>
